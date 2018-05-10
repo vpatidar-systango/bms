@@ -1,0 +1,18 @@
+<div id='re-invite' style='display:none;width:300px; height:250px; position:absolute; background-color:rgb(236, 245, 245); padding:20px; top:35%; left:35%;'>
+    <h5>Send Re-invitation</h5>
+    <input type="text" id='name' class="form-control" name="name" placeholder="name" required>
+    <br>
+    <input type="email" id='email' class="form-control" name="email" placeholder="email" required>
+    <br>
+    <input type="hidden" id='uid' name ='id'>
+    <button class="btn btn-info" onclick="reInvitation()">Send</button>
+    <button class="btn btn-warning" onclick="closeDiv()">Close</button>
+</div>
+
+<script>
+    function closeDiv(){
+        $(document).ready(function(){
+        $('#re-invite').css('display', 'none');
+    })
+    }
+</script>

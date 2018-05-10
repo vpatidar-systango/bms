@@ -1,0 +1,9 @@
+ <h2 class="page-header">Dashboard</h2>
+ {{>navigation-bar}}
+ {{#if (roleCheck user.role)}}
+{{>sa-dash}} 
+{{else}}
+{{>admin-dash}}
+{{/if}}
+
+

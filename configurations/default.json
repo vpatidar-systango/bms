@@ -1,0 +1,21 @@
+{
+    "mail":{
+        "subject": "Password reset",
+        "header" : "Dear ",
+        "middle" : "This mail was sent in response to your request to reset your password.\n Please click on the link below.",
+        "footer": "If you did not request for password reset, Please report us on this link",
+        "regards": "Building Management Ltd."
+    },
+    "role":{
+        "SUPERADMIN": "SUPERADMIN",
+        "ADMIN": "ADMIN",
+        "TENANT": "TENANT"
+    },
+    "invitation_mail":{
+        "subject": "Invitation mail",
+        "header" : "Dear ",
+        "middle" : "We would like to invite you to join our website.\n Please click on the link below to join.",
+        "footer": "",
+        "regards": "Building Management Ltd."
+    }
+}
