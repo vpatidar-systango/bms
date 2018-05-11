@@ -22,20 +22,20 @@ module.exports.UserDetails = async function (req, res) {
     if (req.method == 'POST') {
         try {
             if (req.body.id != '' || req.body.username != '' || req.body.name != '' || req.body.address != '' || req.body.contact != '' || req.body.id != '') {
-                var newUser = {
+               
+                var user = await userModel.findOneAndUpdate({_id: req.body.id}, {
                     name: req.body.name,
                     username: req.body.username,
                     contact: req.body.contact,
-                    address: req.body.address,
-                };
-                var user = await userModel.findByIdAndUpdate(req.body.id, newUser);
+                    address: req.body.address
+                });
                 if (user) {
                     req.flash('success_msg', 'You are registered and can now login');
                     res.redirect('/authentication/login');
                 }
             }
         } catch (err) {
-            res.send(err);
+            res.json({ "message": err });
         }
     }
 }
@@ -103,7 +103,7 @@ module.exports.findOrCreate = async function (profile) {
             return data;
         }
     } catch (err) {
-        return err;
+        res.json({ "message": err });
     }
 }
 
@@ -146,7 +146,7 @@ module.exports.deleteUser = async function (req, res) {
         }
 
     } catch (err) {
-        throw err;
+        res.json({ "message": err });
     }
 }
 
@@ -162,10 +162,10 @@ module.exports.reInvite = async function (req, res) {
             id = req.body.id;
         let checkUser = await userModel.findById(id);
         if (checkUser) {
-            if (checkUser.email == email) {
-                res.json({ 'message': 'Invitation already ahas been sent to this email address' });
-                return;
-            } else {
+            // if (checkUser.email == email) {
+            //     res.json({ 'message': 'Invitation already ahas been sent to this email address' });
+            //     return;
+            // } else {
                 var token = await util.generateToken();
 
                 var inviteUrl = `https://${req.headers.host}/invitation/${token}`;
@@ -188,8 +188,8 @@ module.exports.reInvite = async function (req, res) {
 
             }
 
-        }
+        //}
     } catch (err) {
-
+        res.json({ "message": err });
     }
 }

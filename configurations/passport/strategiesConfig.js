@@ -3,8 +3,6 @@ var LocalStrategy = require('passport-local').Strategy;
 var FacebookStrategy = require('passport-facebook').Strategy;
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 var authController = require('../../controllers/authController');
-require('dotenv').load();
-
 
 //google strategy
 passport.use(new GoogleStrategy({

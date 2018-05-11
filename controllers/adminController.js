@@ -19,7 +19,7 @@ module.exports.getAdminIndexPage = async function (req, res, role) {
             res.render('index', { list: userList, role: role });
         }
     } catch (err) {
-        throw err;
+        res.json({ "message": err });
     }
 }
 
@@ -56,7 +56,8 @@ var inviteUser = async function (req, res) {
                         name: name,
                         token: token,
                         role: dj.role.TENANT,
-                        active: false
+                        active: false,
+                        createdby : req._passport.session.user
                     });
 
                     var user = userObj.save();
@@ -71,7 +72,7 @@ var inviteUser = async function (req, res) {
             }
         }
     } catch (err) {
-        throw err;
+        res.json({ "message": err });
     }
 }
 

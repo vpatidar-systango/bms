@@ -1,4 +1,7 @@
 var express = require('express');
+//dotenv config
+require('dotenv').load();
+
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
@@ -26,7 +29,7 @@ var adminRoute = require('./routes/adminRoute');
 var buildingRoute = require('./routes/buildingRoute');
 
 //dotenv config
-require('dotenv').config();
+require('dotenv').load();
 	
 // Init App
 var app = express();
@@ -37,7 +40,8 @@ app.engine('handlebars', exphbs({
   defaultLayout: 'layout',
   partialsDir: path.join(__dirname, 'views/partials'),
   helpers: {
-    roleCheck: helpers.roleCheck,
+    isSuper: helpers.isSuper,
+    isAdmin: helpers.isAdmin,
     serial: helpers.serial,
     changeColor: helpers.changeColor,
     disableReInvite: helpers.disableReInvite
@@ -113,4 +117,4 @@ var options = {
   rejectUnauthorized: false
 };
 
-https.createServer(options, app).listen(3000);
+https.createServer(options, app).listen(process.env.PORT||3000);

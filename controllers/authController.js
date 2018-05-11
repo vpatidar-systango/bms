@@ -60,7 +60,7 @@ module.exports.registerUser = async function (req, res) {
 
             }
         } catch (err) {
-            throw err;
+            res.json({ "message": err });
         }
     }
 }
@@ -96,12 +96,12 @@ module.exports.logout = function (req, res) {
  * 
  * @param {String} username 
  */
-module.exports.getUserByUsername1 =async function(username){
-    try{
+module.exports.getUserByUsername1 = async function (username) {
+    try {
         var query = { username: username };
         let user = await userModel.findOne(query)
         return user;
-    }catch(err){
+    } catch (err) {
         return err;
     }
 }
@@ -110,11 +110,11 @@ module.exports.getUserByUsername1 =async function(username){
  * 
  * @param {String} id 
  */
-module.exports.getUserById = async function(id){
-    try{
+module.exports.getUserById = async function (id) {
+    try {
         let user = await userModel.findById(id)
         return user;
-    }catch(err){
+    } catch (err) {
         return err;
     }
 }
@@ -189,14 +189,16 @@ module.exports.acceptInvitation = async function (req, res) {
     try {
         if (req.method == 'GET') {
             var usertoken = req.params.token;
-            if (usertoken != "")
+            if (usertoken != "") {
                 var user = await userModel.findOne({ token: usertoken });
-            if (user) {
-                res.render('register', { email: user.email, token: usertoken });
+                if (user) {
+                    res.render('register', { email: user.email, token: usertoken });
+                }
             }
+
         }
     } catch (err) {
-        throw err;
+        res.json({ "message": err });
     }
 }
 

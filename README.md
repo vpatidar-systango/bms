@@ -1,9 +1,9 @@
-# Node.js BMS
+# BMS
 
 This is a Building Management Web Application using Node.js, Express, Passport and Mongoose. 
 
 ### Version
-1.1.0
+1.0.0
 
 ### Usage
 

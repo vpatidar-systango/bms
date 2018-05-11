@@ -39,7 +39,8 @@ var inviteUser = async function (req, res) {
                         name: name,
                         token: token,
                         role: dj.role.ADMIN,
-                        active: false
+                        active: false,
+                        createdby : req._passport.session.user
                     });
                     var user = userObj.save();
                     if (user) {
@@ -54,7 +55,7 @@ var inviteUser = async function (req, res) {
             }
         }
     } catch (err) {
-        throw err;
+        res.json({ "message": err });
     }
 }
 
@@ -72,7 +73,7 @@ module.exports.getListOfInvitations = async function (req) {
         return userslist;
 
     } catch (err) {
-        return err;
+        res.json({ "message": err });
     }
 }
 
@@ -89,7 +90,7 @@ module.exports.getSaIndexPage = async function (req, res, role) {
             res.render('index', { list: userList, role: role });
         }
     } catch (err) {
-        return err;
+        res.json({ "message": err });
     }
 }
 
@@ -133,7 +134,7 @@ module.exports.reInvite = async function (req, res) {
 
         }
     } catch (err) {
-
+        res.json({ "message": err });
     }
 }
 
@@ -163,7 +164,7 @@ module.exports.changeStatus = async function (req, res) {
             }
         }
     } catch (err) {
-        return err;
+        res.json({ "message": err });
     }
 }
 

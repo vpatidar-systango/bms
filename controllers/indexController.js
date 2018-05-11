@@ -21,6 +21,10 @@ module.exports.getIndexPage = async function(req,res){
             if(userRole == 0){
                 return await saController.getSaIndexPage(req, res, userRole);
             }
+             //tenant
+             if(userRole == "TENANT"){
+                return res.render('index');
+            }
             else{
                return res.send('user not valid')
             }

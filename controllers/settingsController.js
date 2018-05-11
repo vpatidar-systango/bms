@@ -88,7 +88,7 @@ module.exports.changePassword = async function (req, res) {
         }
         if (req.method == 'POST') {
             var oldPassword = req.body.oldPassword;
-            var newPassword = req.body.newPassword;
+            var newPassword = req.body.password;
             var userId = req._passport.session.user;
 
             if (oldPassword != "" || undefined || null) {
@@ -104,7 +104,7 @@ module.exports.changePassword = async function (req, res) {
                             res.redirect('/');
                         } else {
                             req.flash("success_msg", "Old password is incorrect.");
-                            res.redirect('/change-password');
+                            res.redirect('/setting/change-password');
                         }
                     }
                 }
@@ -112,7 +112,7 @@ module.exports.changePassword = async function (req, res) {
 
         }
     } catch (err) {
-        throw err;
+        res.json({ "message": err })
     }
 
 }

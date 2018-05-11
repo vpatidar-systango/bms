@@ -1,5 +1,10 @@
-module.exports.roleCheck =  function (role) {
+module.exports.isSuper =  function (role) {
     if (role == 0) return true;
+    else return false;
+  }
+
+module.exports.isAdmin =  function (role) {
+    if (role === 'ADMIN') return true;
     else return false;
   }
 

@@ -7,7 +7,7 @@ var middleware = require('../middlewares/index')
 
 // Register
 router.get('/profile-details/:id',middleware.ensureAuthenticated, userController.UserDetails);
-router.post('/profile-details',middleware.ensureAuthenticated, userController.UserDetails);
+router.post('/profile-details', userController.UserDetails);
 
 router.get('/delete-user/:id', userController.deleteUser);
 router.post('/re-invite', userController.reInvite);

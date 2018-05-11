@@ -23,8 +23,9 @@ module.exports.ensureAuthenticated = function(req, res, next){
  * @param {function} next 
  */
 module.exports.checkBuilding = async function(req, res, next){
+	console.log('working')
 	let user = await userModel.findById(req._passport.session.user);
-	if(user.role == 0 || 'TENANT'){
+	if(user.role == 0 ||user.role === 'TENANT'){
 		return next();
 	}
 	let building = await buildingModel.findOne({owner_id: req._passport.session.user});
