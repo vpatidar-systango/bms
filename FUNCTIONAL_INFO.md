@@ -10,20 +10,31 @@ Only those people can register to the website, who's got invitation from Admin.
 ### Use Cases
 #### SUPERADMIN
 send/re-send invitation to township owners(admin).
+
 Activate/de-activate admin
+
 delete admin
+
 change/reset password
 
 #### ADMIN
 send/re-send invitation to tenants/householder.
+
 Activate/de-activate tenants/householder
+
 delete tenants/householder
+
 create/update township records
+
 create/manage events
+
 changing tickets status
+
 change/reset password
 
 #### TENANT/HOUSEHOLDER
 accept invitation
+
 create/close tickets
+
 
