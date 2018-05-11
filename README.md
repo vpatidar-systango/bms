@@ -5,12 +5,15 @@ This is a Building Management Web Application using Node.js, Express, Passport a
 ### Version
 1.0.0
 
-### Usage
+###Author 
+Manish Singh
+
+### Usage 
+Management of township, communication between Township owner and tenants/householders.
 
 
 ### Installation
-
-BMS requires [Node.js](https://nodejs.org/) v4+ to run.
+BMS is built on [Node.js](https://nodejs.org/) v 8.9.3 .
 
 ```sh
 $ npm install
