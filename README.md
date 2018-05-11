@@ -5,7 +5,7 @@ This is a Building Management Web Application using Node.js, Express, Passport a
 ### Version
 1.0.0
 
-###Author 
+### Author 
 Manish Singh
 
 ### Usage 

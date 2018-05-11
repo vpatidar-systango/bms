@@ -3,7 +3,7 @@
 ### Version
 1.0.0
 
-#SPECIFICATIONS
+## SPECIFICATIONS
 Node version 8.9.3
 NPM 5.5.1
 
